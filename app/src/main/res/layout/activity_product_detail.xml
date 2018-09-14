@@ -8,6 +8,7 @@
     android:layout_height="wrap_content"
     tools:context="com.example.real.thinkers.ecommerce.ProductDetailActivity">
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         <TextView
             android:id="@+id/detailedTitle"
             android:textSize="24sp"
+            android:textColor="#000"
             android:text="Product Title will be here"
             android:layout_width="0dp"
             android:layout_weight="10"
@@ -36,6 +38,7 @@
                 android:id="@+id/cartQuantity"
                 android:layout_toRightOf="@+id/cartImageBtn"
                 android:text="0"
+                android:textColor="#000000"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:gravity="bottom"
@@ -44,6 +47,16 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
     <ImageView
         android:id="@+id/detailedImage"
         android:layout_gravity="center_horizontal"
@@ -54,11 +67,13 @@
         android:id="@+id/productDesctiption"
         android:text="Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product"
         android:layout_width="match_parent"
+        android:textColor="#000"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/idDetailPrice"
         android:layout_gravity="end"
         android:text="Price"
+        android:textColor="#000000"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout
@@ -67,26 +82,34 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textColor="#000"
             android:text="Qtty:"
             android:textSize="24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        
         <Button
             android:id="@+id/quantityAddBtn"
             android:textSize="24sp"
             android:text="+"
+            android:onClick="add"
+            android:textColor="#000000"
             android:layout_width="50dp"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/quantityTv"
             android:textSize="24sp"
-            android:text="5"
+            android:text="0"
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/quantitySupBtn"
             android:textSize="24sp"
             android:text="-"
+            android:onClick="sub"
+            android:textColor="#000000"
             android:layout_width="50dp"
             android:layout_height="wrap_content" />
 
@@ -95,10 +118,13 @@
             android:layout_gravity="end"
             android:gravity="end"
             android:textSize="24sp"
+            android:textColor="#000000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to cart" />
 
     </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

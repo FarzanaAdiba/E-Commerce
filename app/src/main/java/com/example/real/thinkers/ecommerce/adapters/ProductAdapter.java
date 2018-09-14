@@ -47,7 +47,7 @@ public class ProductAdapter extends ArrayAdapter<Product> {
 
         String taka =" TK";
         TextView price =  listItem.findViewById(R.id.icPriceTv);
-        price.setText(currentProduct.getPrice()+taka);
+        price.setText(currentProduct.getPrice(position)+taka);
 
         return listItem;
     }

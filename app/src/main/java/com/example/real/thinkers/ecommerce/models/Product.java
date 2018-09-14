@@ -44,7 +44,7 @@ public class Product {
         this.title = title;
     }
 
-    public String getPrice() {
+    public String getPrice(int position) {
         return price;
     }
 
