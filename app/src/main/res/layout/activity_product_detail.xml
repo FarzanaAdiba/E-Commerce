@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    tools:context="com.example.real.thinkers.ecommerce.ProductDetailActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/detailedTitle"
+            android:textSize="24sp"
+            android:text="Product Title will be here"
+            android:layout_width="0dp"
+            android:layout_weight="10"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_weight=".6"
+            android:layout_width="75dp"
+            android:layout_height="75dp">
+
+            <ImageButton
+                android:id="@+id/cartImageBtn"
+                android:background="@mipmap/ic_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/cartQuantity"
+                android:layout_toRightOf="@+id/cartImageBtn"
+                android:text="0"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="bottom"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/detailedImage"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_height="200dp" />
+    <TextView
+        android:id="@+id/productDesctiption"
+        android:text="Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product description here Product"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/idDetailPrice"
+        android:layout_gravity="end"
+        android:text="Price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Qtty:"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/quantityAddBtn"
+            android:textSize="24sp"
+            android:text="+"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/quantityTv"
+            android:textSize="24sp"
+            android:text="5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/quantitySupBtn"
+            android:textSize="24sp"
+            android:text="-"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/adToCartBtn"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add to cart" />
+
+    </LinearLayout>
+
+</LinearLayout>
