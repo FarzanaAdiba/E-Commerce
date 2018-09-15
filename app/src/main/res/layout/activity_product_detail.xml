@@ -74,6 +74,7 @@
         android:layout_gravity="end"
         android:text="Price"
         android:textColor="#000000"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <LinearLayout
@@ -87,11 +88,11 @@
             android:textSize="24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        
+
         <Button
-            android:id="@+id/quantityAddBtn"
+            android:id="@+id/quantitySupBtn"
+            android:text="-"
             android:textSize="24sp"
-            android:text="+"
             android:onClick="add"
             android:textColor="#000000"
             android:layout_width="50dp"
@@ -105,9 +106,9 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/quantitySupBtn"
+            android:id="@+id/quantityAddBtn"
+            android:text="+"
             android:textSize="24sp"
-            android:text="-"
             android:onClick="sub"
             android:textColor="#000000"
             android:layout_width="50dp"

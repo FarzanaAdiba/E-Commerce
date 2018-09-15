@@ -30,7 +30,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         titleTextView.setText(title);
         descriptionTextView.setText(description);
-        priceTextView.setText(price);
+        priceTextView.setText(price+" TK ");
 
     }
 
