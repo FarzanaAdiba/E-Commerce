@@ -19,140 +19,142 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
 
-    private ListView listView;
-    private ProductAdapter mAdapter;
 
-    // --------- Properties of every list item--------------
-
-    //----------titles----------------------
-    private String pakhi3PcsTitle="Pakhi 3pcs";
-    private String makeUpBoxTitle="Make up box";
-    private String chakriThakbeNaTitle="Chakri thakbe na T-shirt";
-    private String cardMobileTitle="Card mobile";
-    private String smartWatchTitle="Smart watch DZ-08";
-    private String tendaRouterTitle="Tenda router";
-    private String waterHeatheTitle="Water heater";
-    private String kidswearTitle="Kids wear kit";
-    private String smartPenTitle="Smart pen";
-    //------------descriptions---------------------
-    private String pakhi3PcsDes="\n" +
-            "\n" +
-            "    অরিজিনাল প্রোডাক্ট\n" +
-            "\n" +
-            "    আনস্টিচড থ্রি পিস\n" +
-            "\n" +
-            "    সালোয়ার: কটন\n" +
-            "\n" +
-            "    কামিজ ফেব্রিক- ফুল জর্জেট এমব্রয়ডারি\n" +
-            "\n" +
-            "    ওড়না: শিফন\n" +
-            "\n" +
-            "    হাই কোয়ালিটি ফেব্রিক\n" +
-            "\n" +
-            "    আকর্ষণীয় ডিজাইন\n" +
-            "\n" +
-            "    ফ্যাশনেবল ও আরামদায়ক\n"; String price3Pcs= "3450";
-
-    private String makeUpBoxDes="Product details of Cosmetics Organizer Box - Transparent\n" +
-            "\n" +
-            "    Type: Storage Boxes\n" +
-            "    Material: Plastic\n" +
-            "    Style: Modern\n" +
-            "    Color: Transparent\n" +
-            "    Environmentally friendly, Stocked\n" +
-            "    Ideal for organizing and storing your makeup"; String makeUpBoxPri= "1990";
-
-    private String chakriTNDes="\n" +
-            "    Fabrics: Cotton\n" +
-            "    Fabrication: 180 GSM\n" +
-            "    Attractive Design\n" +
-            "    Color: As Given Picture\n" +
-            "    Computer Marvel Rubber Print\n" +
-            "    N.B: Please Check The Size Chart And Select Your Size Before Placing Order.\n" +
-            "    Disclaimer: The Actual Color Of The Physical Product May Slightly Vary Due To The Deviation Of Lighting Sources, Photography Or Your Device Display Settings."; String tShirtPrice ="999";
-
-    private String cardMobileDes="\n" +
-            "\n" +
-            "ব্র্যান্ড: AEKU\n" +
-            "\n" +
-            "মডেল: C6\n" +
-            "\n" +
-            "র\u200D্যাম: <128 মেগাবাইট\n" +
-            "\n" +
-            "টকটাইম: ৪ ঘণ্টা (প্রায়)\n" +
-            "\n" +
-            "স্ট্যান্ডবাই টাইম: ২ দিন (প্রায়)\n" +
-            "\n" +
-            "ব্যাটারি: 320mAh\n" +
-            "\n" +
-            "ন্যানো সিম\n" +
-            "\n" +
-            "সিঙ্গেল সিম\n" +
-            "\n" +
-            "কালার: র\u200C্যান্ডম\n"; String carMobPrice="2400";
-
-    private String smartWatchDes="    Display: 1.54'' IPSCapacitive Touchscreen\n" +
-            "    Resolutions: 240 x 240\n" +
-            "    Compatible OS: Android\n" +
-            "    RAM: 64MB, ROM: 128MB\n" +
-            "    Single SIM\n" +
-            "    Camera: VGA"; String smartWatchPri= "1400";
-
-    private String tendaRouterDes="Wireless Speed\t2.4GHZ:300Mbps II\n" +
-            "5GHZ:867Mbps II\n" +
-            "Button\t1*WPS/RESET button\n" +
-            "Antenna Type\t5 External Antennas\n" +
-            "Wireless Standards\t1 10/100M auto-negotiation WAN port II\n" +
-            "3 10/100M auto-negotiation LAN ports II\n" +
-            "Frequency\tWorks over 2.4GHz and 5GHz II\n" +
-            "Basic Functions Wireless Switch II\n" +
-            "SSID Broadcast Switch II\n" +
-            "Work Frequency: 2.4GHz,5GHz II\n" +
-            "Channel Of 2.4GHz:1-13 II\n" +
-            "Channel Of 5GHz: 149、153、157、161、165 II"; String routerPrice = "1950";
-
-    private String waterHeaterDes="\n" +
-            "\n" +
-            "    *Brand: Hyundai\n" +
-            "\n" +
-            "    *Model: REK-105\n" +
-            "\n" +
-            "    *Power: 1550 W\n" +
-            "\n" +
-            "    *Voltage: 220 V\n" +
-            "\n" +
-            "    *Capacity: 1.8 LITER\n" +
-            "\n" +
-            "    *Size: 190x190x230 mm\n" +
-            "\n" +
-            "    *3 Leyar safety.\n" +
-            "\n" +
-            "    *Auto Switch Off Function after Boield.\n" +
-            "\n" +
-            "    *Mirror polished Stainless Steel.\n"; String wHeaterPri ="1150";
-
-    private String kidsWearDes="\n" +
-            "\n" +
-            "    Product type: Baby pack 7 pcs set.\n" +
-            "    Brand: Cussons.\n" +
-            "    Biodegradable and dermatologically tested.\n" +
-            "    Good quality for kids.                                                                                           \n" +
-            "    Made in Indonesia.\n" +
-            "    Color: As same as picture.\n" +
-            "\n"; String kidswearPri = "5580";
-
-    private String smartPenDes="\n" +
-            "    Touch pen for smartphone and Tablets\n" +
-            "    Stylus Pen for Capacitive Touch screens\n" +
-            "    Pen clip for easy carry and storage\n" +
-            "    Super soft and flexible 7mm stylus tip design is replaceable\n" +
-            "    Highly sensitive and durable pen tip provides precision control\n" +
-            "    500,000 tap times for pen tip - SGS certified\n"; String smartPenPri= "2200";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ListView listView;
+        ProductAdapter mAdapter;
+
+        // --------- Properties of every list item--------------
+
+        //----------titles----------------------
+        String pakhi3PcsTitle="Pakhi 3pcs";
+        String makeUpBoxTitle="Make up box";
+        String chakriThakbeNaTitle="Chakri thakbe na T-shirt";
+        String cardMobileTitle="Card mobile";
+        String smartWatchTitle="Smart watch DZ-08";
+        String tendaRouterTitle="Tenda router";
+        String waterHeatheTitle="Water heater";
+        String kidswearTitle="Kids wear kit";
+        String smartPenTitle="Smart pen";
+        //------------descriptions---------------------
+        String pakhi3PcsDes="\n" +
+                "\n" +
+                "    অরিজিনাল প্রোডাক্ট\n" +
+                "\n" +
+                "    আনস্টিচড থ্রি পিস\n" +
+                "\n" +
+                "    সালোয়ার: কটন\n" +
+                "\n" +
+                "    কামিজ ফেব্রিক- ফুল জর্জেট এমব্রয়ডারি\n" +
+                "\n" +
+                "    ওড়না: শিফন\n" +
+                "\n" +
+                "    হাই কোয়ালিটি ফেব্রিক\n" +
+                "\n" +
+                "    আকর্ষণীয় ডিজাইন\n" +
+                "\n" +
+                "    ফ্যাশনেবল ও আরামদায়ক\n"; String price3Pcs= "3450";
+
+        String makeUpBoxDes="Product details of Cosmetics Organizer Box - Transparent\n" +
+                "\n" +
+                "    Type: Storage Boxes\n" +
+                "    Material: Plastic\n" +
+                "    Style: Modern\n" +
+                "    Color: Transparent\n" +
+                "    Environmentally friendly, Stocked\n" +
+                "    Ideal for organizing and storing your makeup"; String makeUpBoxPri= "1990";
+
+        String chakriTNDes="\n" +
+                "    Fabrics: Cotton\n" +
+                "    Fabrication: 180 GSM\n" +
+                "    Attractive Design\n" +
+                "    Color: As Given Picture\n" +
+                "    Computer Marvel Rubber Print\n" +
+                "    N.B: Please Check The Size Chart And Select Your Size Before Placing Order.\n" +
+                "    Disclaimer: The Actual Color Of The Physical Product May Slightly Vary Due To The Deviation Of Lighting Sources, Photography Or Your Device Display Settings."; String tShirtPrice ="999";
+
+        String cardMobileDes="\n" +
+                "\n" +
+                "ব্র্যান্ড: AEKU\n" +
+                "\n" +
+                "মডেল: C6\n" +
+                "\n" +
+                "র\u200D্যাম: <128 মেগাবাইট\n" +
+                "\n" +
+                "টকটাইম: ৪ ঘণ্টা (প্রায়)\n" +
+                "\n" +
+                "স্ট্যান্ডবাই টাইম: ২ দিন (প্রায়)\n" +
+                "\n" +
+                "ব্যাটারি: 320mAh\n" +
+                "\n" +
+                "ন্যানো সিম\n" +
+                "\n" +
+                "সিঙ্গেল সিম\n" +
+                "\n" +
+                "কালার: র\u200C্যান্ডম\n"; String carMobPrice="2400";
+
+        String smartWatchDes="    Display: 1.54'' IPSCapacitive Touchscreen\n" +
+                "    Resolutions: 240 x 240\n" +
+                "    Compatible OS: Android\n" +
+                "    RAM: 64MB, ROM: 128MB\n" +
+                "    Single SIM\n" +
+                "    Camera: VGA"; String smartWatchPri= "1400";
+
+        String tendaRouterDes="Wireless Speed\t2.4GHZ:300Mbps II\n" +
+                "5GHZ:867Mbps II\n" +
+                "Button\t1*WPS/RESET button\n" +
+                "Antenna Type\t5 External Antennas\n" +
+                "Wireless Standards\t1 10/100M auto-negotiation WAN port II\n" +
+                "3 10/100M auto-negotiation LAN ports II\n" +
+                "Frequency\tWorks over 2.4GHz and 5GHz II\n" +
+                "Basic Functions Wireless Switch II\n" +
+                "SSID Broadcast Switch II\n" +
+                "Work Frequency: 2.4GHz,5GHz II\n" +
+                "Channel Of 2.4GHz:1-13 II\n" +
+                "Channel Of 5GHz: 149、153、157、161、165 II"; String routerPrice = "1950";
+
+        String waterHeaterDes="\n" +
+                "\n" +
+                "    *Brand: Hyundai\n" +
+                "\n" +
+                "    *Model: REK-105\n" +
+                "\n" +
+                "    *Power: 1550 W\n" +
+                "\n" +
+                "    *Voltage: 220 V\n" +
+                "\n" +
+                "    *Capacity: 1.8 LITER\n" +
+                "\n" +
+                "    *Size: 190x190x230 mm\n" +
+                "\n" +
+                "    *3 Leyar safety.\n" +
+                "\n" +
+                "    *Auto Switch Off Function after Boield.\n" +
+                "\n" +
+                "    *Mirror polished Stainless Steel.\n"; String wHeaterPri ="1150";
+
+        String kidsWearDes="\n" +
+                "\n" +
+                "    Product type: Baby pack 7 pcs set.\n" +
+                "    Brand: Cussons.\n" +
+                "    Biodegradable and dermatologically tested.\n" +
+                "    Good quality for kids.                                                                                           \n" +
+                "    Made in Indonesia.\n" +
+                "    Color: As same as picture.\n" +
+                "\n"; String kidswearPri = "5580";
+
+        String smartPenDes="\n" +
+                "    Touch pen for smartphone and Tablets\n" +
+                "    Stylus Pen for Capacitive Touch screens\n" +
+                "    Pen clip for easy carry and storage\n" +
+                "    Super soft and flexible 7mm stylus tip design is replaceable\n" +
+                "    Highly sensitive and durable pen tip provides precision control\n" +
+                "    500,000 tap times for pen tip - SGS certified\n"; String smartPenPri= "2200";
 
 
         listView =findViewById(R.id.movies_list);
@@ -175,18 +177,17 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
                 Intent intent = new Intent(MainActivity.this,ProductDetailActivity.class);
-                Product product = new Product();
 
-                Bitmap bitmap = BitmapFactory.decodeResource
+                /*Bitmap bitmap = BitmapFactory.decodeResource
                         (getResources(), productList.get(i).getProductImage());
                 ByteArrayOutputStream bs = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
-                intent.putExtra(ProductCredentials.imageKye, bs.toByteArray());
+                intent.putExtra(ProductCredentials.imageKye, bs.toByteArray());*/
 
                 intent.putExtra(ProductCredentials.titleKey,productList.get(i).getTitle(i));
                 intent.putExtra(ProductCredentials.descriptionKye,productList.get(i).getDescription(i));
                 intent.putExtra(ProductCredentials.priceKey,productList.get(i).getPrice(i));
-                intent.putExtra(ProductCredentials.imageKye,productList.get(i).getProductImage());
+               // intent.putExtra(ProductCredentials.imageKye,productList.get(i).getProductImage());
                 //intent.putExtra(ProductCredentials.imageKye,bitmap);
                 startActivity(intent);
             }
