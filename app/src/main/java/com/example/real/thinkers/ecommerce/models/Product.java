@@ -1,12 +1,14 @@
 package com.example.real.thinkers.ecommerce.models;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
 
 
-    private int productImage;
-    private String title;
-    private String price;
-    private String description;
+    public int productImage;
+    public String title;
+    public String price;
+    public String description;
 
     // Constructor that is used to create an instance of the Product object
     public Product(int productImage, String title, String description, String price) {
@@ -16,9 +18,10 @@ public class Product {
         this.price = price;
     }
 
-
     public Product() {
+
     }
+
 
     public void setDescription(String description) {
         this.description = description;
@@ -32,11 +35,11 @@ public class Product {
         this.productImage = productImage;
     }
 
-    public String getTitle(int position) {
+    public String getTitle(int i) {
         return title;
     }
 
-    public String getDescription(int position) {
+    public String getDescription(int i) {
         return description;
     }
 
@@ -44,7 +47,7 @@ public class Product {
         this.title = title;
     }
 
-    public String getPrice(int position) {
+    public String getPrice(int i) {
         return price;
     }
 

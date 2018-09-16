@@ -1,6 +1,8 @@
 package com.example.real.thinkers.ecommerce;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,7 @@ import com.example.real.thinkers.ecommerce.models.Product;
 import com.example.real.thinkers.myapplication.R;
 import com.example.real.thinkers.ecommerce.adapters.ProductAdapter;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -154,62 +157,37 @@ public class MainActivity extends AppCompatActivity {
 
         listView =findViewById(R.id.movies_list);
         final ArrayList<Product> productList = new ArrayList<>();
-        productList.add(new Product(R.drawable.ic_launcher_foreground, pakhi3PcsTitle ,pakhi3PcsDes, price3Pcs));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, makeUpBoxTitle , makeUpBoxDes ,makeUpBoxPri));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, chakriThakbeNaTitle ,chakriTNDes, tShirtPrice));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, cardMobileTitle ,cardMobileDes, carMobPrice));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, smartWatchTitle ,smartWatchDes, smartWatchPri));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, tendaRouterTitle ,tendaRouterDes ,routerPrice));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, waterHeatheTitle ,waterHeaterDes ,wHeaterPri));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, kidswearTitle ,kidsWearDes ,kidswearPri));
-        productList.add(new Product(R.drawable.ic_launcher_foreground, smartPenTitle ,smartPenDes ,smartPenPri));
+        productList.add(new Product(R.drawable.three_pcs, pakhi3PcsTitle ,pakhi3PcsDes, price3Pcs));
+        productList.add(new Product(R.drawable.make_up, makeUpBoxTitle , makeUpBoxDes ,makeUpBoxPri));
+        productList.add(new Product(R.drawable.t_shirt, chakriThakbeNaTitle ,chakriTNDes, tShirtPrice));
+        productList.add(new Product(R.drawable.card_mobile, cardMobileTitle ,cardMobileDes, carMobPrice));
+        productList.add(new Product(R.drawable.sm_watch, smartWatchTitle ,smartWatchDes, smartWatchPri));
+        productList.add(new Product(R.drawable.router, tendaRouterTitle ,tendaRouterDes ,routerPrice));
+        productList.add(new Product(R.drawable.water_heater, waterHeatheTitle ,waterHeaterDes ,wHeaterPri));
+        productList.add(new Product(R.drawable.kids_wear, kidswearTitle ,kidsWearDes ,kidswearPri));
+        productList.add(new Product(R.drawable.smart_pen, smartPenTitle ,smartPenDes ,smartPenPri));
 
         mAdapter = new ProductAdapter(this,productList);
         listView.setAdapter(mAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
 
                 Intent intent = new Intent(MainActivity.this,ProductDetailActivity.class);
+                Product product = new Product();
 
-                if (position == 0){
-                    intent.putExtra("titleKey",pakhi3PcsTitle);
-                    intent.putExtra("descriptionKey",pakhi3PcsDes);
-                    intent.putExtra("priceKey",price3Pcs);
-                }else if (position==1){
-                    intent.putExtra("titleKey",makeUpBoxTitle);
-                    intent.putExtra("descriptionKey",makeUpBoxDes);
-                    intent.putExtra("priceKey",makeUpBoxPri);
-                }else if (position==2){
-                    intent.putExtra("titleKey",chakriThakbeNaTitle);
-                    intent.putExtra("descriptionKey",chakriTNDes);
-                    intent.putExtra("priceKey",tShirtPrice);
-                }else if (position==3){
-                    intent.putExtra("titleKey",cardMobileTitle);
-                    intent.putExtra("descriptionKey",cardMobileDes);
-                    intent.putExtra("priceKey",carMobPrice);
-                }else if (position==4){
-                    intent.putExtra("titleKey",smartWatchTitle);
-                    intent.putExtra("descriptionKey",smartWatchDes);
-                    intent.putExtra("priceKey",smartWatchPri);
-                }else if (position==5){
-                    intent.putExtra("titleKey",tendaRouterTitle);
-                    intent.putExtra("descriptionKey",tendaRouterDes);
-                    intent.putExtra("priceKey",routerPrice);
-                }else if (position==6){
-                    intent.putExtra("titleKey",waterHeatheTitle);
-                    intent.putExtra("descriptionKey",waterHeaterDes);
-                    intent.putExtra("priceKey",wHeaterPri);
-                }else if (position==7){
-                    intent.putExtra("titleKey",kidswearTitle);
-                    intent.putExtra("descriptionKey",kidsWearDes);
-                    intent.putExtra("priceKey",kidswearPri);
-                }else if (position==8){
-                    intent.putExtra("titleKey",smartPenTitle);
-                    intent.putExtra("descriptionKey",smartPenDes);
-                    intent.putExtra("priceKey",smartPenPri);
-                }
+                Bitmap bitmap = BitmapFactory.decodeResource
+                        (getResources(), productList.get(i).getProductImage());
+                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+                intent.putExtra(ProductCredentials.imageKye, bs.toByteArray());
+
+                intent.putExtra(ProductCredentials.titleKey,productList.get(i).getTitle(i));
+                intent.putExtra(ProductCredentials.descriptionKye,productList.get(i).getDescription(i));
+                intent.putExtra(ProductCredentials.priceKey,productList.get(i).getPrice(i));
+                intent.putExtra(ProductCredentials.imageKye,productList.get(i).getProductImage());
+                //intent.putExtra(ProductCredentials.imageKye,bitmap);
                 startActivity(intent);
             }
         });
