@@ -1,8 +1,8 @@
 package com.example.real.thinkers.ecommerce.models;
 
-import java.io.Serializable;
 
-public class Product implements Serializable {
+
+public class Product{
 
 
     public int productImage;
@@ -35,11 +35,11 @@ public class Product implements Serializable {
         this.productImage = productImage;
     }
 
-    public String getTitle(int i) {
+    public String getTitle() {
         return title;
     }
 
-    public String getDescription(int i) {
+    public String getDescription() {
         return description;
     }
 
@@ -47,7 +47,7 @@ public class Product implements Serializable {
         this.title = title;
     }
 
-    public String getPrice(int i) {
+    public String getPrice() {
         return price;
     }
 

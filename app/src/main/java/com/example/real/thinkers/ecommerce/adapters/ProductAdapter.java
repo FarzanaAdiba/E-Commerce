@@ -21,12 +21,12 @@ import java.util.List;
 public class ProductAdapter extends ArrayAdapter<Product> {
 
     private Context mContext;
-    private List<Product> moviesList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<>();
 
     public ProductAdapter(@NonNull Context context, @SuppressLint("SupportAnnotationUsage") @LayoutRes ArrayList<Product> list) {
         super(context, 0 , list);
         mContext = context;
-        moviesList = list;
+        productList = list;
     }
 
     @NonNull
@@ -36,17 +36,17 @@ public class ProductAdapter extends ArrayAdapter<Product> {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
 
-        Product currentProduct = moviesList.get(position);
+        Product currentProduct = productList.get(position);
 
         ImageView image = listItem.findViewById(R.id.idProductImage);
         image.setImageResource(currentProduct.getProductImage());
 
         TextView title =  listItem.findViewById(R.id.idTitleTv);
-        title.setText(currentProduct.getTitle(position));
+        title.setText(currentProduct.getTitle());
 
 
         TextView price =  listItem.findViewById(R.id.icPriceTv);
-        price.setText(currentProduct.getPrice(position)+" TK");
+        price.setText(currentProduct.getPrice()+" TK");
 
         return listItem;
     }

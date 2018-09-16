@@ -175,20 +175,15 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                Product product = productList.get(i);
 
                 Intent intent = new Intent(MainActivity.this,ProductDetailActivity.class);
 
-                /*Bitmap bitmap = BitmapFactory.decodeResource
-                        (getResources(), productList.get(i).getProductImage());
-                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
-                intent.putExtra(ProductCredentials.imageKye, bs.toByteArray());*/
+                intent.putExtra(ProductCredentials.imageKye,product.getProductImage());
+                intent.putExtra(ProductCredentials.titleKey,product.getTitle());
+                intent.putExtra(ProductCredentials.descriptionKye,product.getDescription());
+                intent.putExtra(ProductCredentials.priceKey,product.getPrice());
 
-                intent.putExtra(ProductCredentials.titleKey,productList.get(i).getTitle(i));
-                intent.putExtra(ProductCredentials.descriptionKye,productList.get(i).getDescription(i));
-                intent.putExtra(ProductCredentials.priceKey,productList.get(i).getPrice(i));
-               // intent.putExtra(ProductCredentials.imageKye,productList.get(i).getProductImage());
-                //intent.putExtra(ProductCredentials.imageKye,bitmap);
                 startActivity(intent);
             }
         });

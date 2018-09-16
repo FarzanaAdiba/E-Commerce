@@ -18,7 +18,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     TextView titleTextView,descriptionTextView,priceTextView,quantityTv;
     ImageView imageView;
 
-
+    String price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +31,14 @@ public class ProductDetailActivity extends AppCompatActivity {
         imageView = findViewById(R.id.detailedImage);
 
         Intent intent = getIntent();
-
-
+        int imageID =getIntent().getIntExtra(ProductCredentials.imageKye,0);
 
            // imageView.setImageBitmap(bitmap);
 
         String title = intent.getStringExtra(ProductCredentials.titleKey);
         String description = intent.getStringExtra(ProductCredentials.descriptionKye);
-        String price = intent.getStringExtra(ProductCredentials.priceKey);
+        price = intent.getStringExtra(ProductCredentials.priceKey);
+        imageView.setImageResource(imageID);
         descriptionTextView.setText(description);
         titleTextView.setText(title);
         priceTextView.setText(price);
@@ -47,10 +47,11 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     public void add(View view) {
         int currentQtt = Integer.parseInt(quantityTv.getText().toString());
-        int addedQtt = currentQtt+1;
-        quantityTv.setText(String.valueOf(addedQtt));
-        int currentPrice =Integer.parseInt(getIntent().getStringExtra(ProductCredentials.priceKey));
-        int addedPrice = currentPrice * addedQtt;
+        currentQtt = currentQtt+1;
+        quantityTv.setText(String.valueOf(currentQtt));
+        int currentPrice =Integer.parseInt(price);
+        int addedPrice = currentPrice * currentQtt;
+
         priceTextView.setText(String.valueOf(addedPrice));
     }
 
@@ -58,13 +59,14 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         int currentQtt = Integer.parseInt(quantityTv.getText().toString());
         if (currentQtt>0) {
-            int subedQtt = currentQtt - 1;
-            quantityTv.setText(String.valueOf(subedQtt));
-            int currentPrice = Integer.parseInt(priceTextView.getText().toString());
-            int subedPrice = currentPrice*subedQtt;
+            currentQtt = currentQtt - 1;
+        }
+            quantityTv.setText(String.valueOf(currentQtt));
+            int currentPrice = Integer.parseInt(price);
+            int subedPrice = currentPrice*currentQtt;
 
             priceTextView.setText(String.valueOf(subedPrice));
-        }
+
 
     }
 }
