@@ -6,6 +6,26 @@ public class Product{
 
 
     public int productImage;
+    public String quantity;
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public Product(String quantity) {
+        this.quantity = quantity;
+    }
+
+    public Product(String quantity, String title, String price) {
+        this.quantity = quantity;
+        this.title = title;
+        this.price = price;
+    }
+
     public String title;
     public String price;
     public String description;
